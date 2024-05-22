@@ -1,0 +1,14 @@
+body {
+    background-color: #fff;
+}
+.background-div {
+    position: fixed; /* Cambiado de absolute a fixed */
+    top: 0;
+    left: 0;
+    z-index: -2;
+    height: 100vh; /* h-screen */
+    width: 100vw; /* w-screen */
+    background-color: white;
+    background: radial-gradient(ellipse 80% 80% at 50% -20%, rgba(52, 160, 101, 0.74), rgba(255, 255, 255, 0));
+    background-attachment: fixed; /* Fijar el fondo */
+}
