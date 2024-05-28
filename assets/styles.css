@@ -1,0 +1,82 @@
+@font-face {
+    font-family: 'Onest-VariableFont_wght';
+    src: url('./fonts/Onest-VariableFont_wght.ttf') format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    font-family: 'Onest-VariableFont_wght';
+    background-color: #fff;
+}
+
+.background-div {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    height: 100vh; /* h-screen */
+    width: 100vw; /* w-screen */
+    background-color:rgba(52, 160, 101, 0.74);
+}
+
+.pokemon-card {
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.pokemon-img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+
+
+.badge-purple {
+    background-color: purple;
+    color: white;
+}
+
+.badge-brown {
+    background-color: brown;
+    color: white;
+}
+
+.badge-sky {
+    background-color: #28a4c7;
+    color: white;
+}
+
+.badge-pink {
+    background-color: pink;
+    color: white;
+}
+
+.badge-green {
+    background-color: green;
+    color: white;
+}
+
+.badge-grey {
+    background-color: grey;
+    color: white;
+}
+
+.badge-black {
+    background-color: black;
+    color: white;
+}
+
+.badge-teal {
+    background-color: teal;
+    color: white;
+}
+
+.badge-light-pink {
+    background-color: lightpink;
+    color: white;
+}
