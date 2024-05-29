@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'Onest-VariableFont_wght';
+    font-family: 'Onest';
     src: url('./fonts/Onest-VariableFont_wght.ttf') format("truetype");
     font-weight: normal;
     font-style: normal;
@@ -7,8 +7,14 @@
 
 
 body {
-    font-family: 'Onest-VariableFont_wght';
     background-color: #fff;
+}
+
+.pokemon-number-badge {
+    position: absolute;
+    top: 9px; 
+    color: #ffffff;
+    z-index: 2;
 }
 
 .background-div {
@@ -22,6 +28,7 @@ body {
 }
 
 .pokemon-card {
+    font-family: 'Onest', sans-serif;
     border: 1px solid #dee2e6;
     border-radius: 5px;
     padding: 10px;

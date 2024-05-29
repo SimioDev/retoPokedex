@@ -1,35 +1,47 @@
 <?php
 include 'config/config.php';
 
+function getAllPokemon() {
+    $pokemonList = [];
+    $url = "https://pokeapi.co/api/v2/pokemon?limit=10000"; 
+    $data = file_get_contents($url);
+    $allPokemonData = json_decode($data, true);
+    if (isset($allPokemonData['results'])) {
+        $pokemonList = $allPokemonData['results'];
+    }
+    return $pokemonList;
+}
 
-function getPokemonData($id) {
-    $url = "https://pokeapi.co/api/v2/pokemon/$id";
+function getPokemonData($url) {
     $data = file_get_contents($url);
     return json_decode($data, true);
 }
 
-for ($i = 1; $i <= 150; $i++) {
-    $pokemon = getPokemonData($i);
+$pokemonList = getAllPokemon();
 
-    $name = ucfirst($pokemon['name']);
-    $height = $pokemon['height'];
-    $weight = $pokemon['weight'];
-    $image_url = $pokemon['sprites']['other']['official-artwork']['front_default'];
+foreach ($pokemonList as $pokemon) {
+    $pokemonData = getPokemonData($pokemon['url']);
+
+    $id = sprintf("#%03d", $pokemonData['id']);
+    $name = ucfirst($pokemonData['name']);
+    $height = $pokemonData['height'];
+    $weight = $pokemonData['weight'];
+    $image_url = $pokemonData['sprites']['other']['official-artwork']['front_default'];
 
     $types = array_map(function($type_info) {
         return $type_info['type']['name'];
-    }, $pokemon['types']);
+    }, $pokemonData['types']);
     $types_str = implode(',', $types);
 
+    $sql = "INSERT INTO pokemon (id, name, height, weight, image_url, types) VALUES ('$id','$name', $height, $weight, '$image_url', '$types_str')";
 
-    $sql = "INSERT INTO pokemon (name, height, weight, image_url, types) VALUES ('$name', $height, $weight, '$image_url', '$types_str')";
-    
     if ($conn->query($sql) === TRUE) {
-        header('Location: index.php');
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 }
 
 $conn->close();
+
+header('Location: index.php'); 
 ?>
