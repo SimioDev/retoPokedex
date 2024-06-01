@@ -19,15 +19,14 @@
             <img src="./assets/imgs/pokemon_logo.png" alt="PokemonLogo" class="w-25 img-fluid mx-auto d-block mt-4">
         </div>
 
+        <div class="pokemons">
+
+        </div>
+
         <div id="pokemon-container" class="pokemons row mt-5">
             <?php include 'db.php'; ?>
         </div>
 
-        <div id="loading" class="text-center mt-4" style="display: none;">
-            <div class="spinner-border" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-        </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

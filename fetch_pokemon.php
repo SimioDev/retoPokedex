@@ -33,9 +33,11 @@ foreach ($pokemonList as $pokemon) {
     }, $pokemonData['types']);
     $types_str = implode(',', $types);
 
-    $sql = "INSERT INTO pokemon (id, name, height, weight, image_url, types) VALUES ('$id','$name', $height, $weight, '$image_url', '$types_str')";
+    $sql = "INSERT IGNORE INTO pokemon (id, name, height, weight, image_url, types) 
+            VALUES ('$id','$name', $height, $weight, '$image_url', '$types_str')";
 
     if ($conn->query($sql) === TRUE) {
+        
     } else {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
