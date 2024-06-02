@@ -5,7 +5,9 @@
   <span>
     <h4 align="center">Pokedex por medio de la PokéApi
     </h4>
-    <span align="center">https://pokeapi.co</span>
+    <p><span align="center">https://pokeapi.co</span></p>
   </span>
 </span>
 <hr>
+
+<img src="https://ibb.co/2yjY7gV"></img>
