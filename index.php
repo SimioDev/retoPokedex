@@ -22,6 +22,7 @@
         
         <div class="filters mt-4 d-flex justify-content-center">
             <form class="row g-6" method="GET" action="index.php">
+                
                 <div class="col-md-4">
                     <input type="text" name="search" class="form-control" placeholder="Buscar por nombre" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
                 </div>
@@ -34,12 +35,16 @@
                         <option value="number_desc" <?php echo isset($_GET['sort']) && $_GET['sort'] == 'number_desc' ? 'selected' : ''; ?>>Número (Mayor a Menor)</option>
                     </select>
                 </div>
+                
                 <div class="col-md-4">
                     <button type="submit" class="btn btn-primary">Aplicar Filtro <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></button>
                 </div>
-            </form>
-        </div>
 
+            </form>
+            
+        </div>
+        
+        <div class="filters d-flex justify-content-center"><a href="src/trainers.php" class="btn btn-danger mt-4 g-6">Gestionar Entrenadores <svg  xmlns="http://www.w3.org/2000/svg"  width="20"  height="20"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-user"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" /><path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" /></svg></a></div>
 
 
         <div id="pokemon-container" class="pokemons row mt-4">
