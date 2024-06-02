@@ -9,5 +9,3 @@
   </span>
 </span>
 <hr>
-
-<img src="https://ibb.co/2yjY7gV"></img>
