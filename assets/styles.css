@@ -17,15 +17,20 @@ body {
     z-index: 2;
 }
 
+.filters{
+    font-family: 'Onest', sans-serif;
+}
+
 .background-div {
     position: fixed;
     top: 0;
     left: 0;
     z-index: -2;
-    height: 100vh; /* h-screen */
-    width: 100vw; /* w-screen */
-    background-color:rgba(52, 160, 101, 0.74);
+    height: 100vh; 
+    width: 100vw;
+    background-color:rgba(19, 121, 64, 0.74);
 }
+
 
 .pokemon-card {
     font-family: 'Onest', sans-serif;

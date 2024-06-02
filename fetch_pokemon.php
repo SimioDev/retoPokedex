@@ -33,8 +33,20 @@ foreach ($pokemonList as $pokemon) {
     }, $pokemonData['types']);
     $types_str = implode(',', $types);
 
-    $sql = "INSERT IGNORE INTO pokemon (id, name, height, weight, image_url, types) 
-            VALUES ('$id','$name', $height, $weight, '$image_url', '$types_str')";
+    $base_stats = [];
+    foreach ($pokemonData['stats'] as $stat) {
+        $base_stats[$stat['stat']['name']] = $stat['base_stat'];
+    }
+    
+    $base_stat_hp = $base_stats['hp'];
+    $base_stat_attack = $base_stats['attack'];
+    $base_stat_defense = $base_stats['defense'];
+    $base_stat_special_attack = $base_stats['special-attack'];
+    $base_stat_special_defense = $base_stats['special-defense'];
+    $base_stat_speed = $base_stats['speed'];
+
+    $sql = "INSERT IGNORE INTO pokemon (id, name, height, weight, image_url, types, base_stat_hp, base_stat_attack, base_stat_defense, base_stat_special_attack, base_stat_special_defense, base_stat_speed) 
+            VALUES ('$id','$name', $height, $weight, '$image_url', '$types_str', $base_stat_hp, $base_stat_attack, $base_stat_defense, $base_stat_special_attack, $base_stat_special_defense, $base_stat_speed)";
 
     if ($conn->query($sql) === TRUE) {
         

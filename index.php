@@ -19,11 +19,30 @@
             <img src="./assets/imgs/pokemon_logo.png" alt="PokemonLogo" class="w-25 img-fluid mx-auto d-block mt-4">
         </div>
 
-        <div class="pokemons">
-
+        
+        <div class="filters mt-4 d-flex justify-content-center">
+            <form class="row g-6" method="GET" action="index.php">
+                <div class="col-md-4">
+                    <input type="text" name="search" class="form-control" placeholder="Buscar por nombre" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+                </div>
+                <div class="col-md-4">
+                    <select name="sort" class="form-select">
+                        <option value="">Filtros</option>
+                        <option value="name_asc" <?php echo isset($_GET['sort']) && $_GET['sort'] == 'name_asc' ? 'selected' : ''; ?>>Nombre (A-Z)</option>
+                        <option value="name_desc" <?php echo isset($_GET['sort']) && $_GET['sort'] == 'name_desc' ? 'selected' : ''; ?>>Nombre (Z-A)</option>
+                        <option value="number_asc" <?php echo isset($_GET['sort']) && $_GET['sort'] == 'number_asc' ? 'selected' : ''; ?>>Número (Menor a Mayor)</option>
+                        <option value="number_desc" <?php echo isset($_GET['sort']) && $_GET['sort'] == 'number_desc' ? 'selected' : ''; ?>>Número (Mayor a Menor)</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <button type="submit" class="btn btn-primary">Aplicar Filtro <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-search"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" /><path d="M21 21l-6 -6" /></svg></button>
+                </div>
+            </form>
         </div>
 
-        <div id="pokemon-container" class="pokemons row mt-5">
+
+
+        <div id="pokemon-container" class="pokemons row mt-4">
             <?php include 'db.php'; ?>
         </div>
 
@@ -51,6 +70,7 @@
                     type: 'GET',
                     data: {
                         offset: offset,
+                        sort: '<?php echo isset($_GET['sort']) ? $_GET['sort'] : ''; ?>',
                     },
                     success: function(data) {
                         $('#pokemon-container').append(data);
@@ -63,6 +83,7 @@
                     }
                 });
             }
+
         });
     </script>
 </body>
